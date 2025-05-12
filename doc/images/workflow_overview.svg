@@ -111,7 +111,7 @@
   <g class="fade-in" style="animation-delay: 0.8s">
     <!-- Step 1: Original Shape -->
     <circle cx="210" cy="180" r="30" fill="#1890FF" class="pulse" />
-    <text x="210" cy="185" text-anchor="middle" class="label-text" fill="#fff">1</text>
+    <text x="210" y="185" text-anchor="middle" class="label-text" fill="#fff">1</text>
     <text x="270" y="185" text-anchor="start" class="label-text">Display Shape</text>
     
     <!-- Original shape example -->
@@ -119,7 +119,7 @@
     
     <!-- Step 2: User Tracing -->
     <circle cx="210" cy="280" r="30" fill="#52C41A" class="pulse" style="animation-delay: 0.2s" />
-    <text x="210" cy="285" text-anchor="middle" class="label-text" fill="#fff">2</text>
+    <text x="210" y="285" text-anchor="middle" class="label-text" fill="#fff">2</text>
     <text x="270" y="285" text-anchor="start" class="label-text">User Traces Shape</text>
     
     <!-- Tracing example -->
@@ -127,7 +127,7 @@
     
     <!-- Step 3: Analysis -->
     <circle cx="210" cy="380" r="30" fill="#FA8C16" class="pulse" style="animation-delay: 0.4s" />
-    <text x="210" cy="385" text-anchor="middle" class="label-text" fill="#fff">3</text>
+    <text x="210" y="385" text-anchor="middle" class="label-text" fill="#fff">3</text>
     <text x="270" y="385" text-anchor="start" class="label-text">AI Analysis</text>
     
     <!-- Analysis features -->
@@ -143,7 +143,7 @@
   <g class="fade-in" style="animation-delay: 1.2s">
     <!-- Step 1: Free Drawing -->
     <circle cx="590" cy="180" r="30" fill="#722ED1" class="pulse" />
-    <text x="590" cy="185" text-anchor="middle" class="label-text" fill="#fff">1</text>
+    <text x="590" y="185" text-anchor="middle" class="label-text" fill="#fff">1</text>
     <text x="650" y="185" text-anchor="start" class="label-text">Free Drawing</text>
     
     <!-- Drawing example -->
@@ -151,7 +151,7 @@
     
     <!-- Step 2: GauGAN Transformation -->
     <circle cx="590" cy="280" r="30" fill="#EB2F96" class="pulse" style="animation-delay: 0.2s" />
-    <text x="590" cy="285" text-anchor="middle" class="label-text" fill="#fff">2</text>
+    <text x="590" y="285" text-anchor="middle" class="label-text" fill="#fff">2</text>
     <text x="650" y="285" text-anchor="start" class="label-text">GauGAN Conversion</text>
     
     <!-- GauGAN example -->
@@ -161,7 +161,7 @@
     
     <!-- Step 3: Analysis -->
     <circle cx="590" cy="380" r="30" fill="#F5222D" class="pulse" style="animation-delay: 0.4s" />
-    <text x="590" cy="385" text-anchor="middle" class="label-text" fill="#fff">3</text>
+    <text x="590" y="385" text-anchor="middle" class="label-text" fill="#fff">3</text>
     <text x="650" y="385" text-anchor="start" class="label-text">Image Analysis</text>
     
     <!-- Analysis features -->
