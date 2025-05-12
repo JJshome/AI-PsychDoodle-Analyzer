@@ -1,0 +1,39 @@
+server:
+  host: 0.0.0.0
+  port: 8000
+  workers: 4
+  log_level: info
+  timeout: 60
+  ssl_enabled: false
+  ssl_cert: ""
+  ssl_key: ""
+
+api:
+  enable_cors: true
+  allowed_origins:
+    - "*"
+  require_api_key: false
+  api_keys: []
+  rate_limit_enabled: true
+  rate_limit: 100  # requests per minute
+
+models:
+  shape_analyzer_path: "models/weights/shape_analyzer_model.h5"
+  drawing_analyzer_path: "models/weights/drawing_analyzer_model.h5"
+  gaugan_model_path: "models/weights/gaugan_model.pth"
+  use_gpu: false
+  gpu_memory_limit: 2048  # MB
+
+storage:
+  type: local
+  path: "data/"
+  s3_bucket: ""
+  s3_region: ""
+  azure_container: ""
+  azure_connection_string: ""
+
+monitoring:
+  enabled: true
+  prometheus_enabled: true
+  prometheus_port: 8001
+  health_check_interval: 60  # seconds

@@ -1,0 +1,87 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ../..
+      dockerfile: deployment/server/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../../data:/app/data
+      - ../../models/weights:/app/models/weights
+      - ../../logs:/app/logs
+    environment:
+      - SERVER_HOST=0.0.0.0
+      - SERVER_PORT=8000
+      - SERVER_WORKERS=4
+      - SERVER_LOG_LEVEL=info
+      - API_REQUIRE_KEY=false
+      - USE_GPU=false
+    restart: unless-stopped
+    networks:
+      - psych_doodle_network
+    depends_on:
+      - prometheus
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  prometheus:
+    image: prom/prometheus:v2.42.0
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    restart: unless-stopped
+    networks:
+      - psych_doodle_network
+
+  grafana:
+    image: grafana/grafana:9.4.7
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=psych_doodle_admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    restart: unless-stopped
+    networks:
+      - psych_doodle_network
+    depends_on:
+      - prometheus
+
+  nginx:
+    image: nginx:1.23-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ../../data/static:/usr/share/nginx/html/static
+    restart: unless-stopped
+    networks:
+      - psych_doodle_network
+    depends_on:
+      - api
+
+volumes:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  psych_doodle_network:
+    driver: bridge
