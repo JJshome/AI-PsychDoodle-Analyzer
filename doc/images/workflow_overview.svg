@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes spinIn {
+      0% { transform: rotate(-180deg) scale(0.2); opacity: 0; }
+      100% { transform: rotate(0deg) scale(1); opacity: 1; }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    .pulse {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    .float {
+      animation: float 3s infinite ease-in-out;
+    }
+    .path {
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 3s forwards;
+    }
+    .spin-in {
+      transform-origin: center;
+      animation: spinIn 1s forwards;
+    }
+    .header-text {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      fill: #333;
+    }
+    .subheader-text {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      fill: #444;
+    }
+    .label-text {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      fill: #333;
+    }
+    .description-text {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      fill: #666;
+    }
+  </style>
+
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f9fa" />
+      <stop offset="100%" stop-color="#e9ecef" />
+    </linearGradient>
+    <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="3" stdDeviation="5" flood-color="rgba(0, 0, 0, 0.2)" />
+    </filter>
+    <!-- Human figure -->
+    <symbol id="human" viewBox="0 0 50 100">
+      <circle cx="25" cy="20" r="15" fill="#FFB6C1" />
+      <path d="M25 35 L25 70 M15 45 L35 45 M15 90 L25 70 L35 90" stroke="#FFB6C1" stroke-width="5" stroke-linecap="round" />
+    </symbol>
+    <!-- Phone icon -->
+    <symbol id="phone" viewBox="0 0 50 80">
+      <rect x="10" y="5" width="30" height="70" rx="5" ry="5" fill="#E0E0E0" stroke="#333" stroke-width="1" />
+      <rect x="13" y="12" width="24" height="40" rx="2" ry="2" fill="#fff" stroke="#333" stroke-width="0.5" />
+      <circle cx="25" cy="65" r="5" fill="#f5f5f5" stroke="#333" stroke-width="0.5" />
+    </symbol>
+    <!-- Cloud icon -->
+    <symbol id="cloud" viewBox="0 0 100 60">
+      <path d="M 25 40 C 10 40 10 20 25 20 C 25 10 40 5 50 15 C 65 0 85 15 80 30 C 95 30 95 45 80 50 C 75 55 55 55 50 50 C 40 60 20 50 25 40" fill="#f5f5f5" stroke="#333" stroke-width="1" />
+    </symbol>
+  </defs>
+
+  <!-- Main background -->
+  <rect width="800" height="600" rx="15" ry="15" fill="url(#bg-gradient)" />
+
+  <!-- Title -->
+  <text x="400" y="50" text-anchor="middle" class="header-text fade-in" style="animation-delay: 0.2s">AI-PsychDoodle-Analyzer Workflow</text>
+
+  <!-- Main Workflow Areas -->
+  <g class="fade-in" style="animation-delay: 0.4s">
+    <!-- Method 1: Guided Drawing Analysis -->
+    <rect x="50" y="100" width="320" height="400" rx="15" ry="15" fill="#E6F7FF" stroke="#91D5FF" stroke-width="2" filter="url(#drop-shadow)" />
+    <text x="210" y="130" text-anchor="middle" class="subheader-text">Guided Drawing Analysis</text>
+    
+    <!-- Method 2: Free Drawing Analysis -->
+    <rect x="430" y="100" width="320" height="400" rx="15" ry="15" fill="#F9F0FF" stroke="#D3ADF7" stroke-width="2" filter="url(#drop-shadow)" />
+    <text x="590" y="130" text-anchor="middle" class="subheader-text">Free Drawing Analysis</text>
+  </g>
+
+  <!-- Method 1 Steps -->
+  <g class="fade-in" style="animation-delay: 0.8s">
+    <!-- Step 1: Original Shape -->
+    <circle cx="210" cy="180" r="30" fill="#1890FF" class="pulse" />
+    <text x="210" cy="185" text-anchor="middle" class="label-text" fill="#fff">1</text>
+    <text x="270" y="185" text-anchor="start" class="label-text">Display Shape</text>
+    
+    <!-- Original shape example -->
+    <rect x="150" y="210" width="40" height="40" fill="none" stroke="#1890FF" stroke-width="2" class="float" style="animation-delay: 0.2s" />
+    
+    <!-- Step 2: User Tracing -->
+    <circle cx="210" cy="280" r="30" fill="#52C41A" class="pulse" style="animation-delay: 0.2s" />
+    <text x="210" cy="285" text-anchor="middle" class="label-text" fill="#fff">2</text>
+    <text x="270" y="285" text-anchor="start" class="label-text">User Traces Shape</text>
+    
+    <!-- Tracing example -->
+    <rect x="150" y="310" width="40" height="40" fill="none" stroke="#52C41A" stroke-width="2" stroke-dasharray="5,2" class="float" style="animation-delay: 0.3s" />
+    
+    <!-- Step 3: Analysis -->
+    <circle cx="210" cy="380" r="30" fill="#FA8C16" class="pulse" style="animation-delay: 0.4s" />
+    <text x="210" cy="385" text-anchor="middle" class="label-text" fill="#fff">3</text>
+    <text x="270" y="385" text-anchor="start" class="label-text">AI Analysis</text>
+    
+    <!-- Analysis features -->
+    <text x="90" y="410" text-anchor="start" class="description-text">• Response Time</text>
+    <text x="90" y="425" text-anchor="start" class="description-text">• Shape Accuracy</text>
+    <text x="90" y="440" text-anchor="start" class="description-text">• Drawing Style</text>
+    <text x="210" y="410" text-anchor="start" class="description-text">• Pressure Points</text>
+    <text x="210" y="425" text-anchor="start" class="description-text">• Completion Rate</text>
+    <text x="210" y="440" text-anchor="start" class="description-text">• Color Selection</text>
+  </g>
+
+  <!-- Method 2 Steps -->
+  <g class="fade-in" style="animation-delay: 1.2s">
+    <!-- Step 1: Free Drawing -->
+    <circle cx="590" cy="180" r="30" fill="#722ED1" class="pulse" />
+    <text x="590" cy="185" text-anchor="middle" class="label-text" fill="#fff">1</text>
+    <text x="650" y="185" text-anchor="start" class="label-text">Free Drawing</text>
+    
+    <!-- Drawing example -->
+    <path d="M540 210 C 550 200, 570 220, 580 210" stroke="#722ED1" stroke-width="2" fill="none" class="float" style="animation-delay: 0.2s" />
+    
+    <!-- Step 2: GauGAN Transformation -->
+    <circle cx="590" cy="280" r="30" fill="#EB2F96" class="pulse" style="animation-delay: 0.2s" />
+    <text x="590" cy="285" text-anchor="middle" class="label-text" fill="#fff">2</text>
+    <text x="650" y="285" text-anchor="start" class="label-text">GauGAN Conversion</text>
+    
+    <!-- GauGAN example -->
+    <rect x="530" y="310" width="60" height="40" rx="5" ry="5" fill="#FFF0F6" stroke="#EB2F96" stroke-width="1" class="float" style="animation-delay: 0.3s" />
+    <path d="M540 330 C 550 320, 560 350, 580 330" stroke="#EB2F96" stroke-width="1" fill="none" />
+    <circle cx="570" cy="325" r="5" fill="#EB2F96" fill-opacity="0.5" />
+    
+    <!-- Step 3: Analysis -->
+    <circle cx="590" cy="380" r="30" fill="#F5222D" class="pulse" style="animation-delay: 0.4s" />
+    <text x="590" cy="385" text-anchor="middle" class="label-text" fill="#fff">3</text>
+    <text x="650" y="385" text-anchor="start" class="label-text">Image Analysis</text>
+    
+    <!-- Analysis features -->
+    <text x="470" y="410" text-anchor="start" class="description-text">• Color Distribution</text>
+    <text x="470" y="425" text-anchor="start" class="description-text">• Spatial Organization</text>
+    <text x="470" y="440" text-anchor="start" class="description-text">• Object Recognition</text>
+    <text x="590" y="410" text-anchor="start" class="description-text">• Emotional Content</text>
+    <text x="590" y="425" text-anchor="start" class="description-text">• Symbolic Analysis</text>
+    <text x="590" y="440" text-anchor="start" class="description-text">• Pattern Recognition</text>
+  </g>
+
+  <!-- Combined Results Path -->
+  <g class="fade-in" style="animation-delay: 1.6s">
+    <!-- Converging paths -->
+    <path d="M210 450 C 210 470, 400 500, 400 520" stroke="#1890FF" stroke-width="3" fill="none" class="path" />
+    <path d="M590 450 C 590 470, 400 500, 400 520" stroke="#722ED1" stroke-width="3" fill="none" class="path" />
+    
+    <!-- Results box -->
+    <rect x="300" y="520" width="200" height="60" rx="10" ry="10" fill="#F6FFED" stroke="#52C41A" stroke-width="2" filter="url(#drop-shadow)" class="pulse" style="animation-delay: 2s" />
+    <text x="400" y="550" text-anchor="middle" class="label-text">Psychological Assessment</text>
+    <text x="400" y="570" text-anchor="middle" class="description-text">Personalized Feedback & Recommendations</text>
+  </g>
+
+  <!-- Animations and Characters -->
+  <g class="fade-in" style="animation-delay: 2s">
+    <!-- User figures -->
+    <use href="#human" x="70" y="180" width="40" height="80" class="float" />
+    <use href="#human" x="450" y="180" width="40" height="80" class="float" style="animation-delay: 0.3s" />
+    
+    <!-- Devices -->
+    <use href="#phone" x="95" y="230" width="30" height="60" class="float" style="animation-delay: 0.5s" />
+    <use href="#phone" x="475" y="230" width="30" height="60" class="float" style="animation-delay: 0.7s" />
+    
+    <!-- AI Cloud -->
+    <use href="#cloud" x="350" y="450" width="100" height="60" class="spin-in" style="animation-delay: 2.2s" />
+    <text x="400" y="490" text-anchor="middle" class="label-text" fill="#333">AI Engine</text>
+  </g>
+</svg>
